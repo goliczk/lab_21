@@ -4,7 +4,8 @@ var app = express();
 var randomMusic = require("./lyric.js");
 
 app.get('/', function(req,res) {
-	res.send(randomMusic(0));
+	var selection = Math.floor(Math.random()*randomMusic.length);
+	res.send(randomMusic[selection]);
 });
 
 var server = app.listen(3000, function() {
